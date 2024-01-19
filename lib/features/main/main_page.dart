@@ -1,4 +1,5 @@
 import 'package:emotion_tracker/core/utils/emotions_util.dart';
+import 'package:emotion_tracker/features/history/history_page.dart';
 import 'package:emotion_tracker/features/main/main_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -38,7 +39,7 @@ class MainPage extends GetView<MainController> {
                 emotions: EmotionsUtil.positiveEmotions,
                 isPositive: true,
                 onClick: (emotion){
-
+                  controller.insertHistory(emotion);
                 },
               ),
               EmotionCollectionItem(
@@ -47,12 +48,12 @@ class MainPage extends GetView<MainController> {
                 emotions: EmotionsUtil.negativeEmotions,
                 isPositive: false,
                 onClick: (emotion){
-
+                  controller.insertHistory(emotion);
                 },
               ),
               FilledButton(
                 onPressed: (){
-
+                  Get.to(const HistoryPage());
                 },
                 child: const Text("Show History")
               )

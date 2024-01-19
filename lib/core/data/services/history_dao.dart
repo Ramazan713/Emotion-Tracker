@@ -12,7 +12,7 @@ abstract class HistoryDao{
   Future<int> updateHistory(HistoryEntity history);
 
   @Query("""
-    select * from histories
+    select * from histories order by id desc
   """)
   Future<List<HistoryEntity>> getHistories();
 }

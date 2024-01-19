@@ -110,8 +110,9 @@ class __$$HistoryImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$HistoryImpl with DiagnosticableTreeMixin implements _History {
-  const _$HistoryImpl({this.id, required this.emotion, required this.dateTime});
+class _$HistoryImpl extends _History with DiagnosticableTreeMixin {
+  const _$HistoryImpl({this.id, required this.emotion, required this.dateTime})
+      : super._();
 
   @override
   final int? id;
@@ -156,11 +157,12 @@ class _$HistoryImpl with DiagnosticableTreeMixin implements _History {
       __$$HistoryImplCopyWithImpl<_$HistoryImpl>(this, _$identity);
 }
 
-abstract class _History implements History {
+abstract class _History extends History {
   const factory _History(
       {final int? id,
       required final String emotion,
       required final DateTime dateTime}) = _$HistoryImpl;
+  const _History._() : super._();
 
   @override
   int? get id;

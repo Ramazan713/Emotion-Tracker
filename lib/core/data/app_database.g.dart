@@ -134,7 +134,7 @@ class _$HistoryDao extends HistoryDao {
 
   @override
   Future<List<HistoryEntity>> getHistories() async {
-    return _queryAdapter.queryList('select * from histories',
+    return _queryAdapter.queryList('select * from histories order by id desc',
         mapper: (Map<String, Object?> row) => HistoryEntity(
             id: row['id'] as int?,
             timestamp: row['timestamp'] as String,
