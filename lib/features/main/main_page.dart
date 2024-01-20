@@ -1,6 +1,7 @@
 import 'package:emotion_tracker/core/utils/emotions_util.dart';
 import 'package:emotion_tracker/features/history/history_page.dart';
 import 'package:emotion_tracker/features/main/main_controller.dart';
+import 'package:emotion_tracker/features/quote_display/presentation/quote_detail_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -40,6 +41,7 @@ class MainPage extends GetView<MainController> {
                 isPositive: true,
                 onClick: (emotion){
                   controller.insertHistory(emotion);
+                  Get.to(() => const QuoteDetailPage(), arguments: {"emotion": emotion});
                 },
               ),
               EmotionCollectionItem(
@@ -49,6 +51,7 @@ class MainPage extends GetView<MainController> {
                 isPositive: false,
                 onClick: (emotion){
                   controller.insertHistory(emotion);
+                  Get.to(() => const QuoteDetailPage(),arguments: {"emotion": emotion});
                 },
               ),
               FilledButton(
