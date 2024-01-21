@@ -13,20 +13,25 @@ class HistoryPage extends GetView<HistoryController> {
         title: const Text("History Page"),
       ),
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16,vertical: 12),
-          child: Obx(() {
-            final histories = controller.histories;
-            return ListView.builder(
-              itemCount: histories.length,
-              itemBuilder: (context, index){
-                final history = histories[index];
-                return HistoryRow(
-                  history: history,
-                );
-              },
-            );
-          }),
+        child: SingleChildScrollView(
+          controller: controller.scrollController,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16,vertical: 12),
+            child: Obx(() {
+              final histories = controller.histories;
+              return ListView.builder(
+                controller: controller.scrollController,
+                shrinkWrap: true,
+                itemCount: histories.length,
+                itemBuilder: (context, index){
+                  final history = histories[index];
+                  return HistoryRow(
+                    history: history,
+                  );
+                },
+              );
+            }),
+          ),
         ),
       ),
     );

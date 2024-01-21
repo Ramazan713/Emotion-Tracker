@@ -22,45 +22,47 @@ class MainPage extends GetView<MainController> {
         ),
       ),
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16,vertical: 16),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Text(
-                "How are you ?",
-                style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                  fontWeight: FontWeight.w500
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16,vertical: 16),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Text(
+                  "How are you ?",
+                  style: Theme.of(context).textTheme.headlineMedium?.copyWith(
+                    fontWeight: FontWeight.w500
+                  ),
                 ),
-              ),
-              const SizedBox(height: 8,),
-              EmotionCollectionItem(
-                margins: const EdgeInsets.symmetric(vertical: 16),
-                title: "Positive Emotions",
-                emotions: EmotionsUtil.positiveEmotions,
-                isPositive: true,
-                onClick: (emotion)async{
-                  await controller.setSchedule();
-                  Get.to(() => const QuoteDetailPage(), arguments: {"emotion": emotion});
-                },
-              ),
-              EmotionCollectionItem(
-                margins: const EdgeInsets.symmetric(vertical: 16),
-                title: "Negative Emotions",
-                emotions: EmotionsUtil.negativeEmotions,
-                isPositive: false,
-                onClick: (emotion) async{
-                  await controller.setSchedule();
-                  Get.to(() => const QuoteDetailPage(),arguments: {"emotion": emotion});
-                },
-              ),
-              FilledButton(
-                onPressed: (){
-                  Get.to(const HistoryPage());
-                },
-                child: const Text("Show History")
-              )
-            ],
+                const SizedBox(height: 8,),
+                EmotionCollectionItem(
+                  margins: const EdgeInsets.symmetric(vertical: 16),
+                  title: "Positive Emotions",
+                  emotions: EmotionsUtil.positiveEmotions,
+                  isPositive: true,
+                  onClick: (emotion)async{
+                    await controller.setSchedule();
+                    Get.to(() => const QuoteDetailPage(), arguments: {"emotion": emotion});
+                  },
+                ),
+                EmotionCollectionItem(
+                  margins: const EdgeInsets.symmetric(vertical: 16),
+                  title: "Negative Emotions",
+                  emotions: EmotionsUtil.negativeEmotions,
+                  isPositive: false,
+                  onClick: (emotion) async{
+                    await controller.setSchedule();
+                    Get.to(() => const QuoteDetailPage(),arguments: {"emotion": emotion});
+                  },
+                ),
+                FilledButton(
+                  onPressed: (){
+                    Get.to(const HistoryPage());
+                  },
+                  child: const Text("Show History")
+                )
+              ],
+            ),
           ),
         ),
       ),

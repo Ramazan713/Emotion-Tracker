@@ -1,6 +1,7 @@
 
 import 'package:emotion_tracker/core/domain/models/history/history.dart';
 import 'package:emotion_tracker/core/domain/repo/history_repo.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class HistoryController extends GetxController{
@@ -12,6 +13,8 @@ class HistoryController extends GetxController{
     _historyRepo = historyRepo;
   }
 
+  final ScrollController scrollController = ScrollController();
+
   final histories = <History>[].obs;
 
   @override
@@ -19,5 +22,11 @@ class HistoryController extends GetxController{
     super.onInit();
 
     histories.value = await _historyRepo.getHistories();
+  }
+
+  @override
+  void onClose() {
+    scrollController.dispose();
+    super.onClose();
   }
 }
