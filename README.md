@@ -1,16 +1,16 @@
-# emotion_tracker
+# Emotion Tracker
 
-A new Flutter project.
+## Technologies and Libraries
+- Flutter
+- MVVM
+- Clean Architecture
+- Notification
+- GetX
+- Floor
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+## Screenshots
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+| Main Page | Details Page | History Page |
+| ----------- | ---------------- | ---------------- |
+| ![Main Screen](https://github.com/Ramazan713/Assets/blob/d035d2bc60444505ba57dccfb9cb443b7111a1b4/images/app/emotion%20tracker/home.png) | ![Details Screen](https://github.com/Ramazan713/Assets/blob/d035d2bc60444505ba57dccfb9cb443b7111a1b4/images/app/emotion%20tracker/detail.png) | ![History Screen](https://github.com/Ramazan713/Assets/blob/d035d2bc60444505ba57dccfb9cb443b7111a1b4/images/app/emotion%20tracker/history.png)
