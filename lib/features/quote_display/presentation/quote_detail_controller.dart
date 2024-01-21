@@ -29,7 +29,13 @@ class QuoteDetailController extends GetxController{
   void onInit() async{
     super.onInit();
 
-    final emotion = Get.arguments["emotion"] ?? "joy";
+    final String emotion;
+    if(Get.arguments is Map<String,String>){
+      emotion = Get.arguments["emotion"] ?? "joy";
+    }else{
+      emotion = "joy";
+    }
+
     isLoading.value = true;
     final quote = await _quoteRepo.getRandomQuote(emotion);
     this.quote.value = quote;

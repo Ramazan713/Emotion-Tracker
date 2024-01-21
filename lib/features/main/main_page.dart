@@ -39,7 +39,8 @@ class MainPage extends GetView<MainController> {
                 title: "Positive Emotions",
                 emotions: EmotionsUtil.positiveEmotions,
                 isPositive: true,
-                onClick: (emotion){
+                onClick: (emotion)async{
+                  await controller.setSchedule();
                   controller.insertHistory(emotion);
                   Get.to(() => const QuoteDetailPage(), arguments: {"emotion": emotion});
                 },
@@ -49,7 +50,8 @@ class MainPage extends GetView<MainController> {
                 title: "Negative Emotions",
                 emotions: EmotionsUtil.negativeEmotions,
                 isPositive: false,
-                onClick: (emotion){
+                onClick: (emotion) async{
+                  await controller.setSchedule();
                   controller.insertHistory(emotion);
                   Get.to(() => const QuoteDetailPage(),arguments: {"emotion": emotion});
                 },
