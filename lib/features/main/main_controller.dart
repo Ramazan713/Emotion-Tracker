@@ -1,17 +1,13 @@
 
 import 'package:emotion_tracker/core/domain/notifications/emotion_notification_service.dart';
-import 'package:emotion_tracker/core/domain/repo/history_repo.dart';
 import 'package:get/get.dart';
 
 class MainController extends GetxController{
-  late final HistoryRepo _historyRepo;
   late final EmotionNotificationService _notificationService;
 
   MainController({
-    required HistoryRepo historyRepo,
     required EmotionNotificationService notificationService
   }){
-    _historyRepo = historyRepo;
     _notificationService = notificationService;
   }
 
@@ -19,16 +15,7 @@ class MainController extends GetxController{
   void onInit() async {
     super.onInit();
 
-    await _notificationService.handleNotificationNavigationRequest(
-      onBefore: (emotion)async{
-        insertHistory(emotion);
-      }
-    );
-  }
-
-
-  void insertHistory(String emotion) async{
-    await _historyRepo.insertHistory(emotion);
+    await _notificationService.handleNotificationNavigationRequest();
   }
 
   Future<void> setSchedule()async{

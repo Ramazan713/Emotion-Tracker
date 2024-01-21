@@ -41,7 +41,6 @@ class MainPage extends GetView<MainController> {
                 isPositive: true,
                 onClick: (emotion)async{
                   await controller.setSchedule();
-                  controller.insertHistory(emotion);
                   Get.to(() => const QuoteDetailPage(), arguments: {"emotion": emotion});
                 },
               ),
@@ -52,7 +51,6 @@ class MainPage extends GetView<MainController> {
                 isPositive: false,
                 onClick: (emotion) async{
                   await controller.setSchedule();
-                  controller.insertHistory(emotion);
                   Get.to(() => const QuoteDetailPage(),arguments: {"emotion": emotion});
                 },
               ),

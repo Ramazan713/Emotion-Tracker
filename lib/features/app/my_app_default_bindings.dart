@@ -35,12 +35,12 @@ class MyAppDefaultBindings extends Bindings{
     Get.put<QuoteRepo>(QuoteRepoImpl(downloadService: Get.find()));
 
     Get.put(MainController(
-        historyRepo: Get.find(),
         notificationService: Get.find()
     ));
     Get.lazyPut(() => HistoryController(historyRepo: Get.find()), fenix: true);
     Get.lazyPut(() => QuoteDetailController(
         quoteRepo: Get.find(),
+        historyRepo: Get.find(),
         downloadImageUrlService: Get.find()
     ), fenix: true);
   }
